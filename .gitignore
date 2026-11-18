@@ -1,0 +1,16 @@
+# dependencies and builds
+node_modules/
+dist/
+contracts/out/
+contracts/cache/
+
+# secrets and local state (never commit)
+.env
+.env.*
+.circle/
+recovery_file*
+console.jsonl
+traces.jsonl
+
+# the empty clone used to link the GitHub remote
+Arc-Hill-Climb-/

@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --bg-gradient: linear-gradient(180deg, #f9f9fc 0%, #fffcf7 52%, #fbf7f2 100%);
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: rgba(255, 255, 255, 0.9);
+  --surface-muted: #f5f5f8;
+  --ink: #122d45;
+  --ink-2: #334155;
+  --muted: #6b6580;
+  --subtle: #8a849c;
+  --border: rgba(18, 45, 69, 0.12);
+  --border-strong: rgba(25, 53, 77, 0.5);
+  --accent: #122d45;
+  --accent-hover: #1061a6;
+  --focus: #85b1ed;
+  --success: #1a8047;
+  --danger: #ba2b4c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100dvh;
+  color: var(--ink);
+  background: var(--bg-gradient);
+}
+
+.display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sheen {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-7px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(18, 45, 69, 0.08);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.6) 50%, transparent 80%);
+  animation: sheen-full 1.4s ease-in-out infinite;
+}
+@keyframes sheen-full {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.live-dot {
+  position: relative;
+}
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.stagger > * {
+  animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.stagger > *:nth-child(2) { animation-delay: 0.06s; }
+.stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger > *:nth-child(4) { animation-delay: 0.18s; }
+.stagger > *:nth-child(5) { animation-delay: 0.24s; }
+.stagger > *:nth-child(6) { animation-delay: 0.3s; }
+
+.shake-once {
+  animation: shake 0.45s ease-in-out;
+}
+
+.cta {
+  position: relative;
+  overflow: hidden;
+}
+.cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  pointer-events: none;
+}
+.cta:not(:disabled):hover::after {
+  animation: sheen 0.9s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes wheel-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bike-wheel {
+  animation: wheel-spin 0.45s linear infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes scroll-x {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tw {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(420px);
+  }
+}
+
+@keyframes wind-x {
+  from {
+    transform: translateX(60px);
+  }
+  to {
+    transform: translateX(-1300px);
+  }
+}
+
+@keyframes flame-flick {
+  0%,
+  100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.95;
+  }
+  30% {
+    transform: scaleX(1.25) scaleY(0.8);
+    opacity: 0.75;
+  }
+  60% {
+    transform: scaleX(0.85) scaleY(1.2);
+    opacity: 1;
+  }
+}
+.flame-flick > * {
+  transform-box: fill-box;
+  transform-origin: right center;
+  animation: flame-flick 0.16s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.neon-pulse {
+  animation: neon-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes bolt {
+  0%,
+  86%,
+  100% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  94% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.3;
+  }
+}
+.bolt {
+  animation: bolt 1.8s linear infinite;
+}
+
+@keyframes rider-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-1.2deg);
+  }
+}
+.rider-bob {
+  transform-box: fill-box;
+  transform-origin: 40% 100%;
+  animation: rider-bob 0.5s ease-in-out infinite;
+}
+
+@keyframes scroll-w {
+  to {
+    transform: translateX(-1200px);
+  }
+}
+@keyframes scroll-earth {
+  to {
+    transform: translateX(-120px);
+  }
+}
+
+/* While riding full screen, park the watermark between the two pedals so it never covers one. */
+html[data-ride] .studio-watermark {
+  right: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+  bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  opacity: 0.8;
+}
