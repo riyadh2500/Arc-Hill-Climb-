@@ -7,6 +7,8 @@ contracts/cache/
 # secrets and local state (never commit)
 .env
 .env.*
+# public contract addresses used by production builds are safe to commit
+!.env.production
 .circle/
 recovery_file*
 console.jsonl

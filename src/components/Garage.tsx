@@ -6,7 +6,7 @@ import { ArrowRight, Check, Loader2, Lock, Wallet } from 'lucide-react'
 import { BikeArt } from '@/components/BikeArt'
 import { Confetti } from '@/components/Confetti'
 import { BIKES, MAX_BIKE_LEVEL, statBars } from '@/game/bikes'
-import { formatUsdc } from '@/onchain-money'
+import { formatUsdc } from '@/lib/usdc'
 import { glass } from '@/lib/hillclimb'
 import type { GarageBike, GarageData } from '@/hooks/useGarage'
 

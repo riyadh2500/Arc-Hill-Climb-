@@ -1,15 +1,13 @@
 import type { CSSProperties } from 'react'
 import { parseAbi, type Address } from 'viem'
 import { arcTestnet } from 'viem/chains'
-import { getUsdc } from '@/onchain-facts'
 
 export const CHAIN_ID = arcTestnet.id
 
 export const HILL_CLIMB_ADDRESS = import.meta.env.VITE_HILL_CLIMB_ADDRESS as Address
 
-const usdcFact = getUsdc(CHAIN_ID)
-if (!usdcFact) throw new Error(`USDC is not registered for chain ${CHAIN_ID}`)
-export const USDC_ADDRESS = usdcFact.address as Address
+/** Arc Testnet USDC (ERC-20 view, 6 decimals). Confirmed against the pool contract's USDC() getter. */
+export const USDC_ADDRESS: Address = '0x3600000000000000000000000000000000000000'
 
 /** How many runs one "Allow" covers. */
 export const ALLOWANCE_RUNS = 10n

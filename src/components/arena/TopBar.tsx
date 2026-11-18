@@ -6,7 +6,7 @@ import { BIKES } from '@/game/bikes'
 import { MAPS } from '@/game/maps'
 import { exitFullscreen, enterFullscreen, useIsFullscreen } from '@/lib/fullscreen'
 import { glass } from '@/lib/hillclimb'
-import { formatUsdc } from '@/onchain-money'
+import { formatUsdc } from '@/lib/usdc'
 
 const chip = { ...glass.pill, background: 'rgba(255,255,255,0.78)', color: 'var(--ink)' }
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Coins, Mountain } from 'lucide-react'
 import { SoundButton } from '@/components/SoundButton'
 import { TokenUSDC } from '@web3icons/react'
-import { formatUsdc } from '@/onchain-money'
+import { formatUsdc } from '@/lib/usdc'
 import { glass, shortAddress } from '@/lib/hillclimb'
 import { RollingNumber } from '@/components/RollingNumber'
 

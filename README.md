@@ -42,4 +42,6 @@ bun run contracts:test   # run contract tests
 
 - `VITE_HILL_CLIMB_ADDRESS`: address of the deployed prize pool contract on Arc Testnet.
 - `VITE_ARC_CLIMB_GARAGE_ADDRESS`: address of the deployed bike shop contract on Arc Testnet.
+
+Both are public addresses. `.env.production` already holds them for production builds (for example on Vercel); put them in `.env` for local development.
 - `RPC_PROXY_BASE_URL`, `RPC_PROXY_TOKEN`, `RPC_PROXY_CHAINS`: optional outside Arc Studio. Provisioned by Arc Studio for backend RPC access.

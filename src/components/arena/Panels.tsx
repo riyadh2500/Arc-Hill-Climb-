@@ -7,8 +7,7 @@ import { MAPS } from '@/game/maps'
 import type { HillClimbData } from '@/hooks/useHillClimb'
 import type { Writes } from '@/hooks/useWrites'
 import { ALLOWANCE_RUNS, CHAIN_ID, glass } from '@/lib/hillclimb'
-import { buildTxExplorerUrl } from '@/onchain-facts'
-import { formatUsdc } from '@/onchain-money'
+import { buildTxExplorerUrl, formatUsdc } from '@/lib/usdc'
 import { Busy, GhostButton, PrimaryButton, REASONS, SuccessMark, Title, type RunResult } from './parts'
 
 interface StartProps {
@@ -135,7 +134,7 @@ export function SubmittedCard({ result, data, hash, youLead, onAgain }: DoneProp
       />
       {hash && (
         <a
-          href={buildTxExplorerUrl(CHAIN_ID, hash)}
+          href={buildTxExplorerUrl(hash)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-1 text-xs font-semibold"
